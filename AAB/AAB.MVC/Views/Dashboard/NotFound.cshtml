@@ -1,0 +1,29 @@
+﻿@{
+
+    ViewBag.Title = ViewBag.ErrorType + " Not Found";
+}
+
+@if (ViewBag.ErrorType == "Book")
+{
+<div class="row">
+    <div class="col-md-12">
+        <h2>Lost?</h2>
+        <p>Sorry - but the @ViewBag.ErrorType.ToLower() you requested doesn't exist or was deleted.</p>
+        <p>
+            @Html.ActionLink("Back to list", "Book", "Dashboard")
+        </p>
+    </div>
+</div>
+}
+else
+{
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Lost?</h2>
+            <p>Sorry - but the @ViewBag.ErrorType.ToLower() you requested doesn't exist or was deleted.</p>
+            <p>
+                @Html.ActionLink("Back to list", "Genre", "Dashboard")
+            </p>
+        </div>
+    </div>
+}

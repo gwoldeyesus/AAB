@@ -1,9 +1,33 @@
 ﻿@model System.Web.Mvc.HandleErrorInfo
-
 @{
-    ViewBag.Title = "Error";
+    ViewBag.Title = (!String.IsNullOrEmpty(ViewBag.StatusCode)) ? ViewBag.StatusCode : "500 Error";
 }
 
-<h1 class="text-danger">Error.</h1>
-<h2 class="text-danger">An error occurred while processing your request.</h2>
-
+<div class="row">
+    <div class="col-md-12">
+        <h1 class="text-danger">
+            @(!String.IsNullOrEmpty(ViewBag.StatusCode) ? ViewBag.StatusCode : "500 Error")
+        </h1>
+        <p>
+        <p>
+            @if (ViewBag.StatusCode == "404 Error")
+            {
+                <b>The requested URL @ViewBag.RequestedURL was not found on this server.</b>
+            }
+            else
+            {
+                <b>Sorry, an error occurred while processing your request. We've been notified and we will check it out.</b>;
+            }
+        </p>
+        <p>
+            @if (Request.IsAuthenticated)
+            {
+                @Html.ActionLink("Back to home", "Book", "Dashboard");
+            }
+            else
+            {
+                @Html.ActionLink("Back to home", "Index", "Home");
+            }
+        </p>
+    </div>
+</div>

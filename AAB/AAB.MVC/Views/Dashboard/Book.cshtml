@@ -1,0 +1,66 @@
+﻿@model IEnumerable<AAB.Data.Model.Book>
+
+@{
+    ViewBag.Title = "Book List";
+}
+
+<h2>Book List</h2>
+
+@using (Html.BeginForm())
+{
+    <p>
+        @Html.TextBox("searchString")
+        <input type="submit" value="Search Book" />
+    </p>
+}
+
+<p>
+    @Html.ActionLink("Create New", "BookCreate")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.ActionLink("Title", "Index", new { name = @ViewBag.TitleParam })
+        </th>
+        <th>
+            @Html.ActionLink("Author", "Index", new { name = @ViewBag.AuthorParam })
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NarratedBy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Length)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CoverArt)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WrittenBy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NarratedBy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Length)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CoverArt)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "BookEdit", new { id = item.Id }) |
+                @Html.ActionLink("Details", "BookDetails", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "BookDelete", new { id = item.Id })
+            </td>
+        </tr>
+    }
+
+</table>

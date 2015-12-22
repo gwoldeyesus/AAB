@@ -1,0 +1,89 @@
+﻿@model AAB.Data.Model.Book
+
+@{
+    ViewBag.Title = "Book Details";
+}
+
+<h2>Book Details</h2>
+
+<div>
+    <h4>Book</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WrittenBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WrittenBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NarratedBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NarratedBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Length)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Length)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Rate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Rate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SampleAudio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SampleAudio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FullAudio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FullAudio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CoverArt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CoverArt)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>

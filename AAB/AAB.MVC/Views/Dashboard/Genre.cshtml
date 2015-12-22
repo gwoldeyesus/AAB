@@ -1,0 +1,33 @@
+﻿@model IEnumerable<AAB.Data.Model.Genre>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Genre List</h2>
+
+<p>
+    @Html.ActionLink("Create New", "GenreCreate")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "GenreEdit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "GenreDetails", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "GenreDelete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

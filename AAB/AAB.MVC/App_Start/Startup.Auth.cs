@@ -54,15 +54,15 @@ namespace AAB.MVC
             //   consumerKey: "",
             //   consumerSecret: "");
 
-            //app.UseFacebookAuthentication(
-            //   appId: "",
-            //   appSecret: "");
+            app.UseFacebookAuthentication(
+               appId: "1690237207915189",
+               appSecret: "8c3a372cbefec5cc7efae507c6250ddb");
 
-            //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
-            //{
-            //    ClientId = "",
-            //    ClientSecret = ""
-            //});
+            app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
+            {
+                ClientId = "651402394363-3hadhr5q12apsmihp4mpluatmt8funnf.apps.googleusercontent.com",
+                ClientSecret = "Y_YkY1ZI650cm9RCgRs5ICJA"
+            });
         }
     }
 }

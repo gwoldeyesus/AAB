@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title - Amharic Audio Book</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
@@ -17,13 +17,41 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @if (Request.IsAuthenticated && Context.User.IsInRole("Administrator"))
+                {
+                    @Html.ActionLink("Amharic Audio Book", "Index", "Dashboard", new { area = "" }, new { @class = "navbar-brand" })
+                }
+                else if (Request.IsAuthenticated && Context.User.IsInRole("User"))
+                {
+                    @Html.ActionLink("Amharic Audio Book", "Index", "My", new { area = "" }, new { @class = "navbar-brand" })
+                }
+                else
+                {
+                    @Html.ActionLink("Amharic Audio Book", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                }
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    <li>
+                        @if (Request.IsAuthenticated && Context.User.IsInRole("Administrator"))
+                        {
+                            @Html.ActionLink("Book", "Book", "Dashboard")
+                        }
+                        else if (Request.IsAuthenticated && Context.User.IsInRole("User"))
+                        {
+                            @Html.ActionLink("Book", "Index", "My")
+                        }
+                        else
+                        {
+                            @Html.ActionLink("Book", "Index", "Book")
+                        }
+                    </li>
+                    <li>
+                        @if (Request.IsAuthenticated && Context.User.IsInRole("Administrator"))
+                        {
+                            @Html.ActionLink("Genre", "Genre", "Dashboard")
+                        }
+                    </li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
@@ -33,7 +61,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            <p>&copy; @DateTime.Now.Year - Amharic Audio Book</p>
         </footer>
     </div>
 

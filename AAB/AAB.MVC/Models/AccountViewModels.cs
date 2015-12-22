@@ -8,6 +8,11 @@ namespace AAB.MVC.Models
         [Required]
         [Display(Name = "Email")]
         public string Email { get; set; }
+
+        [Required]
+        [Display(Name = "Full name")]
+        [StringLength(100, MinimumLength = 3, ErrorMessage = "Full name must be between 3 and 50 characters")]
+        public string FullName { get; set; }
     }
 
     public class ExternalLoginListViewModel
@@ -64,6 +69,11 @@ namespace AAB.MVC.Models
 
     public class RegisterViewModel
     {
+        [Required]
+        [StringLength(100, MinimumLength = 3, ErrorMessage = "Full name must be between 3 and 50 characters long.")]
+        [Display(Name = "Full name")]
+        public string FullName { get; set; }
+
         [Required]
         [EmailAddress]
         [Display(Name = "Email")]
